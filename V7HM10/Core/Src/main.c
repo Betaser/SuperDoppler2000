@@ -53,8 +53,8 @@ DMA_HandleTypeDef hdma_usart1_tx;
 
 /* USER CODE BEGIN PV */
 float Temperature, Humidity;
-static uint8_t rx_buf[20];
-static uint8_t tx_buf[50];
+static uint8_t rx_buf[100];
+static uint8_t tx_buf[100];
 static char* msg1 = "AT";
 
 /* USER CODE END PV */
@@ -159,15 +159,10 @@ int main(void)
   /* USER CODE BEGIN WHILE */
   while (1)
   {
-	    AHT20_Measure();        // read sensor //doesn't
-//	    sprintf(tx_buf,"Temp: %.2f, Hum: %.2f",Temperature,Humidity); //doesn't work for now with formatting
-	    sprintf(tx_buf,"Temp: X, Hum: X");
-	    HAL_UART_Transmit_DMA(&huart1, (uint8_t*)tx_buf, strlen(tx_buf));
-	    HAL_Delay(5000);
-
-	    //used for recive from BT
-//	    HAL_UART_Receive_DMA(&huart1, rx_buf, sizeof(rx_buf)-1);
-
+	  AHT20_Measure(); //read temp & humidity
+	  sprintf(tx_buf,"T: %.2f, H: %.2f",Temperature,Humidity); //send T & H via UART to BT
+	  HAL_UART_Transmit_DMA(&huart1, (uint8_t*)tx_buf, strlen(tx_buf));
+	  HAL_Delay(5000);
     /* USER CODE END WHILE */
 
     /* USER CODE BEGIN 3 */
