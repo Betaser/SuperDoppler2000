@@ -1,0 +1,11 @@
+<h1>Subpage1#new</h1>
+<p>Find me in app/views/subpage1/index.html.erb</p>
+<%= button_to "Home", :back, method: :get%>
+
+<div class="scroll-container" style=
+	"width: <%= @container_width%>px; 
+	height: <%= @container_height%>px;">
+	<% @imgs.each do |img| %>
+		<%= image_tag(img.path, width: img.width, height: img.height, style: "padding: 5px")%>
+	<% end %>
+</div>
