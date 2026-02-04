@@ -896,8 +896,8 @@
 		(uuid e20fff8e-12cb-484c-8e97-a8daddd22f55)
 	)
 	(rectangle
-		(start 26.67 27.94)
-		(end 80.01 68.58)
+		(start 26.67 30.48)
+		(end 80.01 71.12)
 		(stroke
 			(width 0)
 			(type default)
@@ -918,7 +918,7 @@
 		)
 		(uuid "65075491-2f97-4042-8239-f3ab9ec85e27")
 	)
-	(text "Vin ??\n"
+	(text "Vin ?? 4.5 or 6 \n"
 		(exclude_from_sim no)
 		(at 166.624 33.274 0)
 		(effects
