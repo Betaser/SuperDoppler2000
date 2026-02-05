@@ -1,0 +1,6 @@
+(sym_lib_table
+  (version 7)
+  (lib (name "My_Library")(type "KiCad")(uri "${KIPRJMOD}/My_Library.kicad_sym")(options "")(descr ""))
+  (lib (name "adafruitBME280")(type "KiCad")(uri "${KIPRJMOD}/adafruitBME280.kicad_sym")(options "")(descr ""))
+  (lib (name "BME280Footprint")(type "KiCad")(uri "${KIPRJMOD}/BME280Footprint.kicad_sym")(options "")(descr ""))
+)
