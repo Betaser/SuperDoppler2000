@@ -1,1 +1,10 @@
 <%= button_to "Subpage", new_subpage1_path, method: :get %>
+<p>Find me in app/view/index/index.html.erb</p>
+
+<%# data should be a hash or array %>
+
+<%= turbo_stream_from "chart_channel" %>
+
+<div id="main_chart">
+	<%= render partial: "subpage1/chart_content", locals: { data: @data } %>
+</div>
