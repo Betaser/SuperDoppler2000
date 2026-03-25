@@ -1,0 +1,9 @@
+<div id="main_chart">
+	<p>Data is <%= data %></p>
+	<p>Last Broadcast At: <%= Time.now %></p>
+	<%= line_chart data, 
+		width: "800px",
+		height: "500px",
+		curve: true, 
+		points: false %>
+</div>

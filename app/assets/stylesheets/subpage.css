@@ -1,0 +1,8 @@
+div.scroll-container {
+	padding: 20px;
+	background-color: #64675d;
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+	overflow-y: auto;
+}
