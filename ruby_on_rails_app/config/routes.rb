@@ -1,5 +1,7 @@
 Rails.application.routes.draw do
-  get "subpage1/subpage1"
+  get "subpage1", to: "subpage1#index"
+  get "settings", to: "settings#index"
+  # resources :settings, only: [ :index, :new ]
   get "index/index"
   # Define your application routes per the DSL in https://guides.rubyonrails.org/routing.html
 
@@ -17,5 +19,5 @@ Rails.application.routes.draw do
   root "index#index"
 
   # Added
-  resources :subpage1
+  # resources :subpage1
 end

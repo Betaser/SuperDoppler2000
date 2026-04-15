@@ -1,0 +1,21 @@
+<%= stylesheet_link_tag "subpage" %>
+
+<h1>Subpage1#index</h1>
+<p>Find me in app/views/subpage1/index.html.erb</p>
+
+
+<%= render "shared/home_button" %>
+
+<div class="scroll-container" style=
+	"width: <%= @container_width %>px; 
+	height: <%= @container_height %>px;">
+	<% @imgs.each do |img| %>
+		<%= image_tag(img, class: :image) %>
+	<% end %>
+</div>
+
+<div class="sensor-data">
+	<%= turbo_stream_from "latest_temperature_channel" %>
+	<div class="label">Temperature:</div>
+	<%= render partial: "subpage1/latest_temperature", locals: { data: @data } %>
+</div>

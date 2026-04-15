@@ -1,0 +1,19 @@
+<%= stylesheet_link_tag "settings_page" %>
+
+<table class="settings_table">
+	<% @rows.each do |index, fn| %>
+		<tr>
+			<td>
+				<%= fn %>
+			</td>
+			<td>
+				<%= form_with url: settings_path, method: :get, data: { turbo_frame: "btn_frame" } do |form| %>
+					<%= form.text_field :input_value, id: "text_field#{index}", class: "text_field" %>
+					<%= form.hidden_field :fn, value: fn %>
+					<%= form.hidden_field :index, value: index %>
+					<%= form.submit "Submit", class: "text_button" %>
+				<% end %>
+			</td>
+		</tr>
+	<% end %>
+</table>

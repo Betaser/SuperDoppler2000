@@ -1,0 +1,8 @@
+.home_button {
+	min-width: 70px;
+	min-height: 50px;
+	background-color: beige;
+	position: absolute;
+	top: 20px;
+	right: 20px;
+}

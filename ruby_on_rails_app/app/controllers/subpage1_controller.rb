@@ -1,30 +1,32 @@
 class Subpage1Controller < ApplicationController
-  def new
+  def self.set_temperature(data)
+    @latest_temperature_data = data[-1][1]
+    Turbo::StreamsChannel.broadcast_replace_to(
+      "latest_temperature_channel",
+      partial: "subpage1/latest_temperature",
+      target: "latest_temperature",
+      locals: { data: @latest_temperature_data }
+    )
+  end
+
+  def index
+    @latest_temperature_data = nil
     @container_width = 500
     @container_height = 350
-    @imgs = [
-      Img.new("coast.jpg", 600, 400, @container_width),
-      Img.new("lights.jpg", 600, 278, @container_width),
-      Img.new("forest.jpg", 300, 400, @container_width),
-      Img.new("mountains.jpg", 299, 400, @container_width)
-    ]
-  end
+    # Consider matching all files in a folder instead of hardcoded names
+    # Sure, use the "subpage/" folder, name can be changed ofc
+    # . is inside ruby_on_rails_app
+    dir = Dir.new("./app/assets/subpage")
+    @imgs = []
+    dir.each_child do |item| 
+      # Get the image size of stuff?
+      png_extension = item[-3..-1]
+      if png_extension == nil or png_extension != "png"
+        puts "non png image ", item
+        next
+      end
 
-  def go_back
-    puts "todo"
-    # redirect_to "/index/index"
-  end
-end
-
-class Img
-  attr_accessor :path
-  attr_accessor :width
-  attr_accessor :height
-
-  def initialize(path, width, height, container_width)
-    @path = path
-    @width = container_width * 0.9
-    ratio = @width.to_f / width
-    @height = height * ratio
+      @imgs << item
+    end
   end
 end
