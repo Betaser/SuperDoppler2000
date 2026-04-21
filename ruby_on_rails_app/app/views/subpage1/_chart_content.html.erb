@@ -1,8 +1,7 @@
 <div id="main_chart">
-	<p>Data is <%= data %></p>
 	<p>Last Broadcast At: <%= Time.now %></p>
 	<%= line_chart data, 
-		width: "600px",
+		width: width,
 		height: "500px",
 		discrete: true,
 		points: true,

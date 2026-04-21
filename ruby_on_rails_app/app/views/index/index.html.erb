@@ -8,5 +8,5 @@
 <%= turbo_stream_from "chart_channel" %>
 
 <div id="main_chart">
-	<%= render partial: "subpage1/chart_content", locals: { data: @data } %>
+	<%= render partial: "subpage1/chart_content", locals: { data: @data, width: @width } %>
 </div>

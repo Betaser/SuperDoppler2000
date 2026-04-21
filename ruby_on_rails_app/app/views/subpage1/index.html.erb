@@ -18,4 +18,12 @@
 	<%= turbo_stream_from "latest_temperature_channel" %>
 	<div class="label">Temperature:</div>
 	<%= render partial: "subpage1/latest_temperature", locals: { data: @data } %>
+
+	<%= turbo_stream_from "latest_humidity_channel" %>
+	<div class="label">Humidity:</div>
+	<%= render partial: "subpage1/latest_humidity", locals: { data: @data } %>
+
+	<%= turbo_stream_from "latest_pressure_channel" %>
+	<div class="label">Pressure:</div>
+	<%= render partial: "subpage1/latest_pressure", locals: { data: @data } %>
 </div>
