@@ -26,4 +26,8 @@
 	<%= turbo_stream_from "latest_pressure_channel" %>
 	<div class="label">Pressure:</div>
 	<%= render partial: "subpage1/latest_pressure", locals: { data: @data } %>
+
+	<%= turbo_stream_from "latest_angle_channel" %>
+	<div class="label">Wind direction from North:</div>
+	<%= render partial: "subpage1/latest_angle", locals: { data: @data } %>
 </div>
