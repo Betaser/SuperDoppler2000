@@ -24,6 +24,7 @@ div.sensor-data {
 	background-color: #37aab0;
 	color: white;
 	padding: 10px;
+	font-size: 30px;
 }
 
 div.sensor-data .label {

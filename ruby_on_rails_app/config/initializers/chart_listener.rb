@@ -23,7 +23,9 @@ def update_data(file)
   data = data.drop([ 0, data.length - $chart_data_size ].max())
 
   # data starts as a 1D array, but maybe let's format as [[time, data]...]
-  type_to_index = [ "temperature (C)", "humidity (% RH)", "pressure", "wind direction (deg)" ]
+  # ideally t, h, p, wind direction, wind speed
+  # type_to_index = [ "temperature (C)", "humidity (% RH)", "wind speed (m/s)", "wind direction (deg)" ]
+  type_to_index = [ "temperature (C)", "humidity (% RH)" ]
   all_data = {}
   for key in type_to_index do
     all_data[key] = []

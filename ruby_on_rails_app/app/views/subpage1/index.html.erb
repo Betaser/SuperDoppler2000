@@ -1,7 +1,7 @@
 <%= stylesheet_link_tag "subpage" %>
 
-<h1>Subpage1#index</h1>
-<p>Find me in app/views/subpage1/index.html.erb</p>
+<h1 hidden="true">Subpage1#index</h1>
+<p hidden="true">Find me in app/views/subpage1/index.html.erb</p>
 
 
 <%= render "shared/home_button" %>
@@ -15,19 +15,33 @@
 </div>
 
 <div class="sensor-data">
-	<%= turbo_stream_from "latest_temperature_channel" %>
-	<div class="label">Temperature:</div>
-	<%= render partial: "subpage1/latest_temperature", locals: { data: @data } %>
+	<div>
+		<%= turbo_stream_from "latest_temperature_channel" %>
+		<div class="label">Temperature:</div>
+		<%= render partial: "subpage1/latest_temperature", locals: { data: @data } %>
+	</div>
 
-	<%= turbo_stream_from "latest_humidity_channel" %>
-	<div class="label">Humidity:</div>
-	<%= render partial: "subpage1/latest_humidity", locals: { data: @data } %>
+	<div>
+		<%= turbo_stream_from "latest_humidity_channel" %>
+		<div class="label">Humidity:</div>
+		<%= render partial: "subpage1/latest_humidity", locals: { data: @data } %>
+	</div>
 
-	<%= turbo_stream_from "latest_pressure_channel" %>
-	<div class="label">Pressure:</div>
-	<%= render partial: "subpage1/latest_pressure", locals: { data: @data } %>
+	<%# <div hidden="true">
+		<%= turbo_stream_from "latest_pressure_channel" %>
+		<div class="label">Pressure:</div>
+		<%= render partial: "subpage1/latest_pressure", locals: { data: @data } %>
+	</div>
 
-	<%= turbo_stream_from "latest_angle_channel" %>
-	<div class="label">Wind direction from North:</div>
-	<%= render partial: "subpage1/latest_angle", locals: { data: @data } %>
+	<div>
+		<%= turbo_stream_from "latest_angle_channel" %>
+		<div class="label">Wind direction from North:</div>
+		<%= render partial: "subpage1/latest_angle", locals: { data: @data, cardinal: @cardinal } %>
+	</div>
+
+	<div>
+		<%= turbo_stream_from "latest_windspeed_channel" %>
+		<div class="label">Wind speed in m/s:</div>
+		<%= render partial: "subpage1/latest_windspeed", locals: { data: @data } %>
+	</div> %>
 </div>
