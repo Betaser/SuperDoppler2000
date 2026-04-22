@@ -27,21 +27,21 @@
 		<%= render partial: "subpage1/latest_humidity", locals: { data: @data } %>
 	</div>
 
-	<%# <div hidden="true">
+	<div hidden="true">
 		<%= turbo_stream_from "latest_pressure_channel" %>
 		<div class="label">Pressure:</div>
 		<%= render partial: "subpage1/latest_pressure", locals: { data: @data } %>
 	</div>
 
-	<div>
+	<div hidden="true">
 		<%= turbo_stream_from "latest_angle_channel" %>
 		<div class="label">Wind direction from North:</div>
 		<%= render partial: "subpage1/latest_angle", locals: { data: @data, cardinal: @cardinal } %>
 	</div>
 
-	<div>
+	<div hidden="true">
 		<%= turbo_stream_from "latest_windspeed_channel" %>
 		<div class="label">Wind speed in m/s:</div>
 		<%= render partial: "subpage1/latest_windspeed", locals: { data: @data } %>
-	</div> %>
+	</div>
 </div>
